@@ -10,8 +10,8 @@ jobs:
     name: Lint + unit tests (keyless, no pipecat)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
       - name: Install minimal test deps (proves the suite needs no vendor SDKs)
@@ -24,8 +24,8 @@ jobs:
     name: Real pipecat import surface
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
       - name: Install the project with real pipecat
@@ -37,5 +37,5 @@ jobs:
     name: Docker image builds
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - run: docker build -t open-receptionist:ci .
