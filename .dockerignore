@@ -1,0 +1,21 @@
+# Never send secrets or runtime data to the Docker build context
+.env
+logs/
+*.wav
+*.mp3
+*.ogg
+
+.git/
+.github/
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+tests/
+docs/
+_to_delete/

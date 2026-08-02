@@ -1,0 +1,20 @@
+services:
+  agent:
+    build: .
+    ports:
+      - "7860:7860"
+    env_file:
+      - .env
+    volumes:
+      # Edit your business config without rebuilding the image.
+      - ./config:/app/config
+      - ./logs:/app/logs
+    restart: unless-stopped
+    # NOTE (WebRTC media): the browser demo negotiates audio over UDP. On
+    # Linux, uncommenting host networking is the simplest reliable setup
+    # (then remove the ports: mapping). On Docker Desktop (Windows/macOS),
+    # if the client connects but you hear nothing, run the agent directly on
+    # the host instead: `python -m agent.bot` — see docs/quickstart.md.
+    # network_mode: host
+
+# Milestone 2 adds: postgres (call logs, leads) and the FastAPI server.
