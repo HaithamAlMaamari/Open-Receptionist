@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint-and-unit:
+    name: Lint + unit tests (keyless, no pipecat)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install minimal test deps (proves the suite needs no vendor SDKs)
+        run: pip install pydantic pyyaml python-dotenv pytest ruff
+      - run: ruff check .
+      - run: ruff format --check .
+      - run: pytest -q
+
+  pipecat-integration:
+    name: Real pipecat import surface
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install the project with real pipecat
+        run: pip install -e ".[dev]"
+      - name: Full suite + real-pipecat smoke test
+        run: RUN_PIPECAT_INTEGRATION=1 pytest -q
+
+  docker-build:
+    name: Docker image builds
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t open-receptionist:ci .
