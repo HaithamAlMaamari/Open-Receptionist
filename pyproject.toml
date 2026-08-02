@@ -11,6 +11,13 @@ dependencies = [
     # version CI verified our import surface against; <2.0 because 2.0
     # removes deprecated APIs. Pin exactly after first light.
     "pipecat-ai[webrtc,silero,deepgram,anthropic,elevenlabs,runner]>=1.7,<2.0",
+    # Transitive via pipecat (TTS sentence tokenization). nltk 3.10.1 added an
+    # import hook that blocks any module resolving inside the process CWD — with
+    # the README's `.venv` inside the repo, that is all of site-packages, so
+    # `import pipecat.utils.string` dies before the bot starts. CI never saw it
+    # (system Python puts site-packages outside the CWD). Drop this pin once a
+    # fixed nltk ships; the `!=` lets 3.10.2+ in automatically.
+    "nltk!=3.10.1",
     "pydantic>=2.7",
     "pyyaml>=6.0",
     "python-dotenv>=1.0",
