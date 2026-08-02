@@ -1,0 +1,70 @@
+# Example business configuration — a fictional dental clinic.
+# Copy to config/business.yaml and edit for your business:
+#   cp config/business.example.yaml config/business.yaml
+# ALL business facts the agent may state live here. Synthetic data only.
+
+name_en: "Al Shifa Dental Clinic"
+name_ar: "عيادة الشفاء لطب الأسنان"
+description_en: "a family dental clinic in Dubai"
+description_ar: "عيادة أسنان عائلية في دبي"
+
+timezone: "Asia/Dubai"
+default_language: "ar"        # first language of the greeting: "ar" or "en"
+languages: ["ar", "en"]
+
+# Number callers are given when they ask for a human (synthetic).
+human_phone: "+971 4 555 0100"
+
+hours:
+  - { day: sunday,    open: "09:00", close: "18:00" }
+  - { day: monday,    open: "09:00", close: "18:00" }
+  - { day: tuesday,   open: "09:00", close: "18:00" }
+  - { day: wednesday, open: "09:00", close: "18:00" }
+  - { day: thursday,  open: "09:00", close: "18:00" }
+  - { day: friday,    closed: true }
+  - { day: saturday,  open: "10:00", close: "14:00" }
+
+services:
+  - name_en: "Check-up and consultation"
+    name_ar: "فحص واستشارة"
+    description_en: "General dental examination with X-ray if needed"
+    description_ar: "فحص أسنان عام مع أشعة عند الحاجة"
+    duration_minutes: 30
+  - name_en: "Teeth cleaning"
+    name_ar: "تنظيف الأسنان"
+    description_en: "Professional scaling and polishing"
+    description_ar: "تنظيف وتلميع احترافي للأسنان"
+    duration_minutes: 45
+  - name_en: "Teeth whitening"
+    name_ar: "تبييض الأسنان"
+    description_en: "In-clinic whitening session"
+    description_ar: "جلسة تبييض داخل العيادة"
+    duration_minutes: 60
+  - name_en: "Fillings"
+    name_ar: "حشوات الأسنان"
+    description_en: "Tooth-colored composite fillings"
+    description_ar: "حشوات تجميلية بلون الأسنان"
+    duration_minutes: 45
+  - name_en: "Dental emergency"
+    name_ar: "حالات طوارئ الأسنان"
+    description_en: "Same-day emergency slots during opening hours"
+    description_ar: "مواعيد طارئة في نفس اليوم خلال ساعات الدوام"
+    duration_minutes: 30
+
+faq:
+  - question_en: "Do you accept insurance?"
+    question_ar: "هل تقبلون التأمين؟"
+    answer_en: "Yes, we work with most major UAE insurance providers. Bring your insurance card to your appointment."
+    answer_ar: "نعم، نتعامل مع معظم شركات التأمين الرئيسية في الإمارات. أحضر بطاقة التأمين معك إلى الموعد."
+  - question_en: "Is parking available?"
+    question_ar: "هل يتوفر موقف سيارات؟"
+    answer_en: "Yes, free parking is available in front of the clinic."
+    answer_ar: "نعم، يتوفر موقف سيارات مجاني أمام العيادة."
+  - question_en: "What should I bring to my first visit?"
+    question_ar: "ماذا أحضر في زيارتي الأولى؟"
+    answer_en: "Your Emirates ID, insurance card if you have one, and any previous X-rays or reports."
+    answer_ar: "الهوية الإماراتية، وبطاقة التأمين إن وجدت، وأي أشعة أو تقارير سابقة."
+  - question_en: "Do you treat children?"
+    question_ar: "هل تعالجون الأطفال؟"
+    answer_en: "Yes, we welcome children of all ages."
+    answer_ar: "نعم، نستقبل الأطفال من جميع الأعمار."
