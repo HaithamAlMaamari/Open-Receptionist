@@ -24,7 +24,7 @@ pip install -e ".[dev]"
 cp .env.example .env         # fill in the three API keys + a voice id
 cp config/business.example.yaml config/business.yaml   # optional: edit your business
 
-python agent/bot.py
+python -m agent.bot
 ```
 
 Open **http://localhost:7860/client**, allow the microphone, and say hello — in Arabic, English, or both in the same sentence.
