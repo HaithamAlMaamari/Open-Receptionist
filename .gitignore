@@ -1,0 +1,30 @@
+# Secrets — never commit
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+
+# Runtime data — transcripts and audio must never be committed
+logs/
+*.wav
+*.mp3
+*.ogg
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Local development workspace (not part of the public project)
+CLAUDE.md
+.claude/
+.mcp.json
+README-BUILD-PLAN.md
+_to_delete/
