@@ -1,6 +1,11 @@
 # Secrets — never commit
 .env
 
+# Your filled-in business config: real name, phone numbers, staff details.
+# Only the .example.yaml template belongs in the repo. Use `git add -f` if you
+# deliberately want to commit yours in a private deployment fork.
+config/business.yaml
+
 # Python
 __pycache__/
 *.py[cod]
